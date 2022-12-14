@@ -17,6 +17,10 @@ const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit, bookmarkTuit}) => {
         const minutesOld = secondsOld/60.0;
         const hoursOld = minutesOld/60.0;
         const daysOld = hoursOld/24.0;
+
+
+        //const postedBy1 = tuit.postedBy.firstname;
+
         if(daysOld > 1) {
             old = Math.round(daysOld) + 'd';
         } else if(hoursOld > 1) {
@@ -45,8 +49,8 @@ const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit, bookmarkTuit}) => {
           </Link>
         <h2
           className="fs-5">
-          {tuit.postedBy && tuit.postedBy.username}
-          @{tuit.postedBy && tuit.postedBy.username} -
+         {tuit.postedBy.username && tuit.postedBy }
+          @ {tuit.postedBy && tuit.postedBy.username} -
             <span className="ms-1">{daysOld(tuit)}</span></h2>
         {tuit.tuit}
         {

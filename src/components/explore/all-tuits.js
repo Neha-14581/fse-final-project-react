@@ -5,6 +5,8 @@ import Tuits from "../tuits"
 const AllTuits = () => {
     console.log("Reached here!")
     const [tuits, setTuits] = useState([]);
+
+
     const findTuits = () => {
         service.findAllTuits()
             .then(tuits => {
@@ -13,11 +15,26 @@ const AllTuits = () => {
     }
     console.log(findTuits);
     useEffect(() => {
-        findTuits()
+        // findTuits()
     }, []);
 
+    // const findTuits = () =>
+    //     service.findAllTuits()
+    //         .then(tuits => {
+    //             setTuits(tuits)
+    //         });
+    // useEffect(() => {
+    //     // let isMounted = true;
+    //     findTuits()
+    //     // return () => {isMounted = false;}
+    // }, []);
+
     return (
-        <Tuits tuits={tuits} refreshTuits={findTuits}/>
+        <div className="ttr-home">
+            <Tuits tuits={tuits} refreshTuits={findTuits}/>
+        </div>
+
+
     )
 }
 

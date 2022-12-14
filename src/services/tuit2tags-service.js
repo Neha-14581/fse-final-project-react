@@ -2,7 +2,8 @@
  * @file Implements the service for tuits2tags
  */
 import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+//const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = 'http://localhost:4000';
 const TAGS_API = `${BASE_URL}/api/tags`;
 /**
  * Since tags-service interacts with an API that uses session, axios is

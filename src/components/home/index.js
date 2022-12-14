@@ -10,6 +10,8 @@ const Home = () => {
   const [tuits, setTuits] = useState([]);
   const [tuit, setTuit] = useState('');
   const userId = uid;
+
+
   const findTuits = () =>
       service.findAllTuits()
         .then(tuits => setTuits(tuits));
@@ -18,9 +20,13 @@ const Home = () => {
     findTuits()
     return () => {isMounted = false;}
   }, []);
+
+
   const createTuit = () =>
       service.createTuit('my', {tuit})
           .then(findTuits)
+
+
   return(
     <div className="ttr-home">
       <div className="border border-bottom-0">
@@ -56,8 +62,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Tuits tuits={tuits}
-             refreshTuits={findTuits}/>
+      {/*<Tuits tuits={tuits}*/}
+      {/*       refreshTuits={findTuits}/>*/}
     </div>
   );
 };

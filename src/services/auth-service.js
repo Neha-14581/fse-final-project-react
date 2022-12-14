@@ -1,7 +1,7 @@
 import axios from "axios";
 //const BASE_URL = "https://software-engineering-node-dev4.herokuapp.com"
-const BASE_URL = process.env.REACT_APP_BASE_URL;
-
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = "http://localhost:4000";
 const AUTH_API = `${BASE_URL}/api/auth`
 
 const api = axios.create({
@@ -26,4 +26,4 @@ export const logout = (user) =>
 
 export const login = (credentials) =>
     api.post(`${AUTH_API}/login`, credentials)
-        .then(response => response.data);
+        .then(response => response.data).then(data => localStorage.setItem("user", JSON.stringify(data)));
